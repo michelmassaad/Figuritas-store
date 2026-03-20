@@ -1,5 +1,5 @@
 let altaProductos_formulario = document.getElementById("altaProductos-formulario");
-let url = "http://localhost:3000";
+let url = `${API_BASE_URL}`; // La url base de la api, la cual esta definida en el archivo config.js y se inyecta en el html con EJS
 let altaUsuarios_formulario = document.getElementById("altaUsuarios-formulario");
 
 altaProductos_formulario.addEventListener("submit", event => {

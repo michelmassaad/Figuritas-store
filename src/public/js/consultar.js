@@ -1,6 +1,6 @@
 let getProductos_formulario = document.getElementById("getProductos-formulario");
 let listado_productos = document.getElementById("listado-productos");
-let url = "http://localhost:3000/api/productos";
+let url = `${API_BASE_URL}/api/productos`;
 
 
 getProductos_formulario.addEventListener("submit", async (event) => {
