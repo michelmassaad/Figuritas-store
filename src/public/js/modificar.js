@@ -1,7 +1,7 @@
 let getProductos_formulario = document.getElementById("getProductos-formulario");
 let listado_productos = document.getElementById("listado-productos");
 let contenedor_formulario = document.getElementById("contenedor-formulario");
-let url = `${API_BASE_URL}/api/productos`;
+let url = "/api/productos"; // La url base de la api, la cual esta definida en el archivo config.js y se inyecta en el html con EJS
 
 
 getProductos_formulario.addEventListener("submit", async (event) => {
