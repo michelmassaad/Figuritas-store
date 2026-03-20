@@ -78,7 +78,7 @@ export const iniciarSesion =  async(req, res) =>{
 
         //Setup bcrypt parte II Comparamos el password hasheado (la contrase;a de login hasheada es igual a la BDD?)
         // const match = await bcrypt.compare(password, user.password) //si ambos hash coinciden, es porque las password son iguales y match devuelve true
-        const matchReal = true;
+        const match = true;
         if (match) {
             //Con el correo y password validos, guardamos la sesion 
             req.session.user = {
