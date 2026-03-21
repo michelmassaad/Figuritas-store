@@ -13,10 +13,10 @@ Una plataforma completa de e-commerce fullstack para gestionar y mostrar tarjeta
 - **🛒 Tienda Pública (Frontend):** [Visitar Tienda](https://barajitas-backend-barajitas-backend.vercel.app/index.html)
 - **⚙️ Panel de Administración (Backend):** [Acceso Admin](https://barajitas-backend-production.up.railway.app/login)
 
-### Credenciales de Demo
-Para acceso administrativo al backend:
-- **Usuario:** `admin`
-- **Contraseña:** `1234`
+### ⚡ Acceso Rápido (Modo Demo)
+En la página de login del backend encontrarás un **botón de "Acceso Rápido"** que rellena automáticamente las credenciales de demostración (`test@test.com`).
+
+>🛡️ **Nota de Seguridad:** Por motivos de protección del portfolio, este usuario tiene **permisos de solo lectura**. Podrás explorar toda la interfaz del panel EJS, visualizar productos y familiarizarte con la arquitectura del backend, pero las acciones destructivas (Crear, Modificar, Eliminar) están interceptadas por un middleware de seguridad que previene alteraciones en la base de datos pública.
 
 ## 📋 Tabla de Contenidos
 
@@ -58,6 +58,9 @@ Para acceso administrativo al backend:
 - **Node.js** - Entorno de ejecución
 - **Express.js** - Framework web y API
 - **EJS** - Plantillas del lado servidor
+- **MySQL** - Base de datos relacional para inventario, productos y usuarios
+- **Bcrypt** - Hasheo y encriptación de contraseñas de administrador
+- **Middleware de Seguridad** - Protección de rutas sensibles para usuario demo
 - **CORS** - Compartir recursos cross-origin
 
 ### Despliegue y DevOps
@@ -113,13 +116,13 @@ barajitas-store/
 
    **Backend (Panel Admin + API):**
    ```bash
-   npm run dev:backend
+   npm run dev -w barajitas-backend
    ```
    El servidor correrá en `http://localhost:3000`
 
    **Frontend (Tienda):**
    ```bash
-   npm run dev:frontend
+   npm run dev -w barajitas-frontend
    ```
    O abrir `packages/frontend/index.html` en el navegador
 
@@ -133,9 +136,9 @@ barajitas-store/
 
 ### Para Administradores
 1. Acceder panel admin en `/login`
-2. Usar credenciales demo: `admin` / `1234`
-3. Gestionar productos: Crear, Actualizar, Eliminar
-4. Cambiar estado de productos
+2. Hacer clic en el botón **"Acceso Rápido (Modo Demo)"** para rellenar automáticamente las credenciales
+3. Explorar la interfaz EJS y visualizar productos
+4. **Nota:** En modo demo, las operaciones de creación, actualización y eliminación están protegidas por middleware de seguridad
 
 ## 📚 Documentación API
 
@@ -208,7 +211,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 
 **Michel Massa'ad**
 - GitHub: [@michelmassaad](https://github.com/michelmassaad)
-- LinkedIn: [Tu LinkedIn](https://linkedin.com/in/tuperfil)
+- LinkedIn: [Tu LinkedIn](https://linkedin.com/in/michel-massaad)
 
 ---
 
