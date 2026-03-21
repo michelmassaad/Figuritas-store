@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Informacion no visible -->
+<head>
+    <title>TP Lucas-Michel / Productos</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+        <!-- icon -->
+    <link rel="icon" href="https://i.postimg.cc/pdG12pnr/fluent-emoji-flat-soccer-ball.png">
+
+    
+    <!-- vincular archivo css con html -->
+    <link rel="stylesheet" href="css/styles_frontend.css">
+    <!-- <script defer src="js/index.js"></script> -->
+
+</head>
+
+<body>
+    <header class="header">
+        <!-- LOGO -->
+        <div class="logo">
+            <a href="productos.html"><span class="color-cyan">FIGURITA</span> STORE</a>
+        </div>
+        <!-- BUSCADOR -->
+        <label class="nav-bar" for="barraBusqueda">
+            <!-- lupa svg -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            
+            <input class="buscador" id = "barraBusqueda" type="text" autocomplete="off" placeholder="Buscar...">
+        </label>
+        <div class="carrito">    
+            <!--  BOTON SALIR  -->
+            <button class="boton-salir" onclick="cerrarSesion()">
+                Salir ❌
+            </button>
+            <!-- BOTON PERFIL -->
+            <button class="boton-perfil">
+                <!-- icono de usuario svg -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="icono-usuario" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>        
+                <span class="texto-usuario" id="texto-usuario"></span>
+            </button>
+            <!-- BOTON CARRITO -->
+            <a href="carrito.html">
+                <!-- svg carrito -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                Carrito
+                <p id="cantidadCarrito"></p>
+            </a>
+        </div>
+    </header>
+    
+    <main>
+        <h1>Nuestros productos</h1>
+        <hr>
+        <div class="filtros">
+            <button class="filtro-boton activo" onclick="filtrarPorCategoria('TODOS')">Todos</button>
+            
+            <button class="filtro-boton" onclick="filtrarPorCategoria('FIGURITAS')">Figuritas</button>
+            
+            <button class="filtro-boton" onclick="filtrarPorCategoria('ACCESORIOS')">Accesorios</button>
+        </div>
+        <section id="contenedor-productos"></section>
+    </main>
+
+    <script defer src="js/main.js"></script>
+    <script defer src="js/productos.js"></script>
+
+</body>
+</html>
