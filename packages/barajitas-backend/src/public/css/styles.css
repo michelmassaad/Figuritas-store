@@ -360,7 +360,7 @@ select#categoriaProducto:focus, #productoActivo:focus {
     background: rgba(30, 41, 59, 0.80);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px 30px; 
+    padding: 8px 30px; 
     border-radius: 15px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
@@ -371,6 +371,7 @@ select#categoriaProducto:focus, #productoActivo:focus {
     gap: 15px; /* Esto crea un espacio limpio entre botón y botón */
     width: 100%;
     margin-top: 20px;
+    margin-bottom: 18px;
 }
 .botones-login .boton {
     flex: 1; /* Hace que ambos botones midan exactamente lo mismo (50/50) */
