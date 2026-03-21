@@ -1,4 +1,4 @@
-# 🃏 Barajitas Store - Plataforma de E-Commerce Fullstack
+# 🃏 Figuritas Store - Plataforma de E-Commerce Fullstack
 
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![Express.js](https://img.shields.io/badge/Express.js-4.x-blue.svg)](https://expressjs.com/)
