@@ -214,15 +214,14 @@ h1{
     margin-top: 7px;
 }
 
-/* cambie */
 .input-formulario{
     width: 100%;
-    padding: 15px;
+    padding: 10px; /* Reducido para armonía */
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
+    border-radius: 8px; /* Consistente con botones */
     color: white;
-    font-size: 1rem;
+    font-size: 14px; /* Consistente */
     font-family: inherit;
     text-align: center;
     outline: none;
@@ -239,16 +238,17 @@ select#categoriaProducto, #productoActivo {
 }
 
 .boton {
-padding: 15px 25px; /* Un padding más equilibrado */
+    padding: 10px 20px; /* Reducido para botones menos enormes */
     color: #0f172a;
-    font-weight: 800;
+    font-weight: 600; /* Menos negrita para armonía */
     border: none;
-    border-radius: 10px;
+    border-radius: 8px; /* Más consistente */
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     background: white;
-    transition: all 0.3s ease; /* Para que el hover sea suave */
+    transition: all 0.3s ease;
+    font-size: 14px; /* Tamaño de fuente consistente */
 }
 
 .boton:hover{
@@ -264,38 +264,59 @@ padding: 15px 25px; /* Un padding más equilibrado */
 
 .productos-formulario {
     margin-bottom: 30px;
-    /* margin-top: 30px; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    width: 50%; /* Estándar para armonía */
+    margin: 0 auto;
+    background: rgba(30, 41, 59, 0.80);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 20px; /* Padding consistente */
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 .productos-formulario-modificar {
-    width: 70%;
+    width: 50%; /* Consistente con otros formularios */
     margin: 0 auto;
+    background: rgba(30, 41, 59, 0.80);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .productos-formulario-amplio {
     display: flex;
     align-items: center;
-    width: 100%;
     width: 50%;
     margin: auto;
     flex-direction: column;
     color: white;
-}
-
-.login-formulario{
-    width: 30% !important;
     background: rgba(30, 41, 59, 0.80);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px 30px; /* Un poco más de aire arriba y abajo */
-    border-radius: 20px;
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.login-formulario{
+    width: 50% !important; /* Consistente con otros formularios */
+    background: rgba(30, 41, 59, 0.80);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 20px; /* Padding consistente */
+    border-radius: 15px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     display: flex;
-    flex-direction: column; /* CRUCIAL: Obliga a los elementos a ir uno debajo del otro */
+    flex-direction: column;
     align-items: center;
 }
 
