@@ -1,7 +1,7 @@
 let barraBusqueda = document.getElementById("barraBusqueda");
 let contenedorProductos = document.getElementById("contenedor-productos");
 
-const url = "https://barajitas-backend-production.up.railway.app/api/productos/activos"; // Guardamos en una variable la url de nuestro endpoint de productos
+const url = "https://figuritas-backend.up.railway.app/api/productos/activos"; // Guardamos en una variable la url de nuestro endpoint de productos
 
 let productos = [];
 
