@@ -30,27 +30,22 @@ const exigirLogin = (req, res, next) => {
 }
 
 const protegerModoDemo = (req, res, next) => {
-    // 1. Buscamos el correo exactamente donde lo guardaste en el login
-    // Agregamos el "req.session.user &&" por seguridad, para evitar errores si la sesión se venció
     const correoLogueado = req.session.user && req.session.user.correo; 
 
-    // 2. Verificamos si es el usuario de prueba
     if (correoLogueado === 'test@test.com') {
-        
-        // 3. Bloqueamos cualquier intento de Crear, Modificar o Borrar
         if (req.method === 'POST' || req.method === 'PUT' || req.method === 'DELETE') {
-            return res.send(`
-                <script>
-                    alert('⛔ MODO DEMO: Podés mirar todo el panel, pero la edición de la base de datos está bloqueada para visitantes.');
-                    window.history.back();
-                </script>
-            `);
+            
+            // ¡Cambio clave acá! Devolvemos JSON en vez de HTML
+            return res.status(403).json({
+                message: "⛔ MODO DEMO: La edición de la base de datos está bloqueada para visitantes."
+            });
         }
     }
     
-    // Si no es test@test.com, o si solo está haciendo un GET (mirando), lo dejamos pasar
     next();
 };
+
+
 export {
     verificarId,
     exigirLogin,

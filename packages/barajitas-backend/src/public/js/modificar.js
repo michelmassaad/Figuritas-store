@@ -154,7 +154,7 @@ async function actualizarProducto(event) {
             contenedor_formulario.innerHTML = "";
 
         } else {
-            alert(error.message);
+            alert(result.message);
         }
 
     } catch (error) {

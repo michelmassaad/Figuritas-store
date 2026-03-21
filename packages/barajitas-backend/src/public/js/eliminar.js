@@ -89,7 +89,7 @@ async function eliminarProducto(id) {
             listado_productos.innerHTML = "";
 
         } else {
-            alert("No se pudo eliminar un producto");
+            alert(result.message || "No se pudo eliminar el producto");
         }
 
     } catch(error) {
