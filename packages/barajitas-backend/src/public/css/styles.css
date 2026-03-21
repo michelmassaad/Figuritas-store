@@ -208,7 +208,7 @@ h1{
     font-size: 17px;
     display: flex;
     justify-content: center;
-    margin-top: 18px;
+    margin-bottom: 10px;
 }
 
 #idProd, #idProducto {
@@ -298,6 +298,10 @@ select#categoriaProducto:focus, #productoActivo:focus {
     background-color: #ff4d4d; /* Rojo al pasar el mouse */
     color: white;
 }
+input.boton.boton-salir {
+    padding: 5px 10px;
+    font-size: 12px;
+}
 
 /* 4. Las cajas individuales dentro de Crear (Producto / Usuario) */
 .productos-formulario {
@@ -312,7 +316,7 @@ select#categoriaProducto:focus, #productoActivo:focus {
     background: rgba(30, 41, 59, 0.80);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 30px 20px;
+    padding: 20px 20px;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
