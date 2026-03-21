@@ -217,8 +217,18 @@ h1{
 /* cambie */
 .input-formulario{
     width: 100%;
-    margin-top: 7px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    font-family: inherit;
+    text-align: center;
+    outline: none;
+    transition: 0.3s;
     box-sizing: border-box;
+    text-transform: capitalize;
 }
 
 select#categoriaProducto, #productoActivo {
@@ -229,21 +239,23 @@ select#categoriaProducto, #productoActivo {
 }
 
 .boton {
-    padding: 2px 6px;
-    border-radius: 5px;
-    /* border: 50px; */
-    margin: 17px;
+    width: 100%;
+    padding: 15px;
+    color: #0f172a;
+    font-weight: 800;
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
-    border: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: black;
-    /* font-weight: bold; */
-    background-color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    background: white;
 }
 
 .boton:hover{
-    background-color: #ccc;
-    border: 0;
+    background: #51b1a3;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+    transform: translateY(-2px);
 }
 
 .boton-salir:hover {
