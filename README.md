@@ -6,7 +6,7 @@
 [![Vercel](https://img.shields.io/badge/Vercel-Deployed-black.svg)](https://vercel.com/)
 [![Railway](https://img.shields.io/badge/Railway-Deployed-blue.svg)](https://railway.app/)
 
-Una plataforma completa de e-commerce fullstack para gestionar y mostrar tarjetas coleccionables deportivas (barajitas/figuritas). Construida con una arquitectura de monorepo con despliegue desacoplado: frontend estático para la tienda pública y backend renderizado en servidor para gestión administrativa.
+Una plataforma completa de e-commerce fullstack para gestionar y mostrar tarjetas coleccionables deportivas (figuritas). Construida con una arquitectura de monorepo con despliegue desacoplado: frontend estático para la tienda pública y backend renderizado en servidor para gestión administrativa.
 
 ## 🌐 Demos en Vivo
 
@@ -73,7 +73,7 @@ En la página de login del backend encontrarás un **botón de "Acceso Rápido"*
 Este proyecto utiliza una **estructura de monorepo** con npm workspaces para mantener dos paquetes independientes:
 
 ```
-barajitas-store/
+figuritas-store/
 ├── packages/
 │   ├── frontend/          # Interfaz estática de tienda
 │   └── backend/           # API + Panel Admin
@@ -104,7 +104,7 @@ barajitas-store/
 1. **Clonar el repositorio:**
    ```bash
    git clone https://github.com/michelmassaad/Figuritas-store.git
-   cd barajitas-store
+   cd figuritas-store
    ```
 
 2. **Instalar dependencias:**
@@ -116,13 +116,13 @@ barajitas-store/
 
    **Backend (Panel Admin + API):**
    ```bash
-   npm run dev -w barajitas-backend
+   npm run dev -w figuritas-backend
    ```
    El servidor correrá en `http://localhost:3000`
 
    **Frontend (Tienda):**
    ```bash
-   npm run dev -w barajitas-frontend
+   npm run dev -w figuritas-frontend
    ```
    O abrir `packages/frontend/index.html` en el navegador
 
