@@ -1,27 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap');
-
 /*================
-    General
+   1. VARIABLES Y GENERAL (Aplica a ambos)
 ================*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+:root {
+    --color-primario: #51b1a3;
+    --color-hover: rgba(0, 210, 255, 0.3); /* Resplandor neón */
+    --fondo-vidrio: rgba(30, 41, 59, 0.60);
+    --borde-vidrio: 1px solid rgba(255, 255, 255, 0.15);
+}
+
 body {
-    height: 100%;
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.90)), 
         url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1920&h=1080&fit=crop');
-
     background-repeat: no-repeat;
-    backdrop-filter: blur(1px);
-
     background-size: cover;
-
     background-position: center;
-
     background-attachment: fixed;
-    
     margin: 0; 
+    
+    /* ¡CHAU MONOSPACE! Hola Montserrat */
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
 
-    font-family: monospace;
-        
+/*================
+   2. EFECTO VIDRIO GLOBAL (Para formularios y cartas)
+================*/
+/* Podés agregarle esta clase a los formularios del Backend para que se vean como el login */
+.panel-vidrio, .productos-formulario-amplio, .login-contenedor {
+    background: var(--fondo-vidrio);
+    backdrop-filter: blur(12px);         
+    border: var(--borde-vidrio);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+}
+
+/*================
+   3. BOTONES MODERNOS UNIFICADOS
+================*/
+.boton, .login-contenedor button {
+    background-color: var(--color-primario);
+    color: black;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.boton:hover, .login-contenedor button:hover {
+    background-color: white;
+    box-shadow: 0 0 15px var(--color-hover);
+    transform: translateY(-2px);
+}
+
+/*================
+   4. ENLACES DEL NAV DEL BACKEND
+================*/
+nav ul a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+}
+
+nav li:hover a {
+    color: var(--color-primario);
+    text-shadow: 0 0 10px var(--color-hover);
 }
 
 /*================
