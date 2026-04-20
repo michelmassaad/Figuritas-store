@@ -55,7 +55,6 @@ import { fileURLToPath } from 'url';
 
 // Esto calcula la ruta exacta de donde está el archivo index.js
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 // Configuramos las vistas usando la ruta absoluta
 app.set("views", path.join(__dirname, "src", "views"));
