@@ -48,12 +48,10 @@ app.use(session({
 /*===================
     Configuracion
 ===================*/
-// app.set("view engine", "ejs"); // Configuramos EJS como motor de plantillas
-// app.set("views", join(__dirname, "src", "views")); // Le indicamos la ruta donde estan las vistas ejs
+app.set("view engine", "ejs"); // Configuramos EJS como motor de plantillas
+app.set("views", join(__dirname, "src", "views")); // Le indicamos la ruta donde estan las vistas ejs
 
-// Usamos process.cwd() que en Vercel es siempre la raíz del proyecto
-app.set("views", path.join(process.cwd(), "src", "views"));
-app.set("view engine", "ejs");
+
 
 // Si tenés archivos estáticos (CSS, JS del cliente), hacé lo mismo:
 app.use(express.static(path.join(process.cwd(), "src", "public")));
@@ -70,18 +68,11 @@ app.use("/", usuarioRoutes);
 // Rutas ventas
 app.use("/api/ventas", ventasRoutes);
 
-// app.listen(PORT, () => {
-//     console.log(`Servidor corriendo en el puerto ${PORT}`);
-// });
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
+});
 
-// Buscá donde dice app.listen(...) y cambialo por esto:
-if (process.env.NODE_ENV !== 'production') {
-    app.listen(environments.port, () => {
-        console.log(`Servidor corriendo en puerto ${environments.port}`);
-    });
-}
 
-export default app; // 👈 ESTO ES VITAL PARA VERCEL
 
 
 
