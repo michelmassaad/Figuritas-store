@@ -3,16 +3,10 @@
   "builds": [
     {
       "src": "src/api/app.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["src/views/**", "src/public/**"]
-      }
+      "use": "@vercel/node"
     }
   ],
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "src/api/app.js"
-    }
+    { "source": "/(.*)", "destination": "src/api/app.js" }
   ]
 }
