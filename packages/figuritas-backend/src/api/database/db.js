@@ -15,7 +15,11 @@ const connection = mysql.createPool({ // createPool: crear conexion
     database: database.name,
     user: database.user,
     password: database.password,
-    port: database.port
+    port: database.port,
+    // 👇 ESTO ES LO ÚNICO NUEVO QUE TENÉS QUE AGREGAR 👇
+    ssl: {
+        rejectUnauthorized: false 
+    }
 });
 
 export default connection;
