@@ -51,13 +51,18 @@ app.use(session({
 import path from 'path'; // 👈 AGREGÁ ESTO ARRIBA DE TODO
 // app.set("view engine", "ejs"); // Configuramos EJS como motor de plantillas
 // app.set("views", join(__dirname, "src", "views")); // Le indicamos la ruta donde estan las vistas ejs
+import { fileURLToPath } from 'url';
 
-// Esto le dice a Express: "Buscá las vistas partiendo de donde estoy parado"
-app.set("views", path.join(process.cwd(), "src", "views"));
+// Esto calcula la ruta exacta de donde está el archivo index.js
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Configuramos las vistas usando la ruta absoluta
+app.set("views", path.join(__dirname, "src", "views"));
 app.set("view engine", "ejs");
 
-// Lo mismo para los archivos públicos (CSS/JS)
-app.use(express.static(path.join(process.cwd(), "src", "public")));
+// Lo mismo para la carpeta public (CSS/JS)
+app.use(express.static(path.join(__dirname, "src", "public")));
 // Si tenés archivos estáticos (CSS, JS del cliente), hacé lo mismo:
 // app.use(express.static(path.join(process.cwd(), "src", "public")));
 // las rutas de las vistas las gestiona Router
