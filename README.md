@@ -4,7 +4,7 @@
 [![Express.js](https://img.shields.io/badge/Express.js-4.x-blue.svg)](https://expressjs.com/)
 [![EJS](https://img.shields.io/badge/EJS-3.x-orange.svg)](https://ejs.co/)
 [![Vercel](https://img.shields.io/badge/Vercel-Deployed-black.svg)](https://vercel.com/)
-[![Railway](https://img.shields.io/badge/Railway-Deployed-blue.svg)](https://railway.app/)
+
 
 Una plataforma completa de e-commerce fullstack para gestionar y mostrar tarjetas coleccionables deportivas (figuritas). Construida con una arquitectura de monorepo con despliegue desacoplado: frontend estático para la tienda pública y backend renderizado en servidor para gestión administrativa.
 
