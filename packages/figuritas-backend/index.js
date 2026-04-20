@@ -52,9 +52,8 @@ app.use(session({
 // app.set("views", join(__dirname, "src", "views")); // Le indicamos la ruta donde estan las vistas ejs
 
 // Usamos process.cwd() para que siempre arranque desde la raíz del proyecto
-app.set("views", path.join(process.cwd(), "src", "views")); 
+app.set("views", path.join(process.cwd(), "src", "views"));
 app.set("view engine", "ejs");
-
 // Si tenés archivos estáticos (CSS, JS del cliente), hacé lo mismo:
 app.use(express.static(path.join(process.cwd(), "src", "public")));
 // las rutas de las vistas las gestiona Router
@@ -69,11 +68,20 @@ app.use("/", usuarioRoutes);
 // Rutas ventas
 app.use("/api/ventas", ventasRoutes);
 
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
-});
+// app.listen(PORT, () => {
+//     console.log(`Servidor corriendo en el puerto ${PORT}`);
+// });
 
 
+// Solo escucha el puerto si NO estamos en Vercel
+if (process.env.NODE_ENV !== 'production') {
+    const port = process.env.PORT || 3000;
+    app.listen(port, () => {
+        console.log(`Servidor local en puerto ${port}`);
+    });
+}
 
+// ESTO ES LO QUE VERCEL NECESITA
+export default app;
 
 
