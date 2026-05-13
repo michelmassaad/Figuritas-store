@@ -1,7 +1,9 @@
 name: Keep Supabase Alive
 on:
   schedule:
-    - cron: '0 0 * * *' # Se ejecuta cada día a medianoche
+    - cron: '0 0 * * *'
+  workflow_dispatch: # <--- ESTO permite que aparezca un botón para probarlo ya mismo
+
 jobs:
   ping:
     runs-on: ubuntu-latest
