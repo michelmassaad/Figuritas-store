@@ -4,9 +4,11 @@
 import express from "express";
 import cors from "cors";
 import session from "express-session";
+import MySQLStoreFactory from "express-mysql-session";
 import path from "path";
 import { fileURLToPath } from "url";
 import environments from "./src/api/config/environments.js";
+import connection from "./src/api/database/db.js";
 import { productoRoutes, usuarioRoutes, ventasRoutes, vistasRoutes } from "./src/api/routes/index.js";
 
 const app = express();
@@ -28,7 +30,15 @@ app.use(express.urlencoded({ extended: true }));
 // Confianza en el proxy para cookies seguras en Vercel/Railway
 app.set('trust proxy', 1);
 
+// Store de sesiones en MySQL: reutiliza el mismo pool de conexión que ya
+// tenías en db.js. Así, sin importar a qué instancia de Vercel llegue cada
+// request, todas leen y escriben la sesión desde el mismo lugar (la base
+// de datos), en vez de depender de la memoria de un proceso puntual.
+const MySQLStore = MySQLStoreFactory(session);
+const sessionStore = new MySQLStore({}, connection);
+
 app.use(session({
+    store: sessionStore,
     secret: environments.session_key,
     resave: false,
     saveUninitialized: false,
