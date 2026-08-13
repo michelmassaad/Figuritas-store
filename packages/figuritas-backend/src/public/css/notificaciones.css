@@ -1,0 +1,163 @@
+/*=============================================
+    NOTIFICACIONES.CSS
+    Estilos para toasts y modal de confirmación.
+    Usa la misma paleta glassmorphism del sitio.
+=============================================*/
+
+#toast-contenedor {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: min(90vw, 380px);
+}
+
+.toast-notif {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    background: rgba(30, 41, 59, 0.90);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    font-size: 0.95rem;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.toast-notif.toast-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.toast-notif.toast-exito {
+    border-left: 4px solid #51b1a3;
+}
+
+.toast-notif.toast-error {
+    border-left: 4px solid #ff4646;
+}
+
+.toast-notif.toast-info {
+    border-left: 4px solid rgba(0, 210, 255, 0.8);
+}
+
+.toast-icono {
+    flex-shrink: 0;
+}
+
+.toast-mensaje {
+    flex: 1;
+    line-height: 1.4;
+}
+
+.toast-cerrar {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+}
+
+.toast-cerrar:hover {
+    color: #fff;
+}
+
+/* ===== Modal de confirmación ===== */
+
+.modal-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    padding: 1rem;
+}
+
+.modal-confirm-overlay.modal-confirm-visible {
+    opacity: 1;
+}
+
+.modal-confirm {
+    background: rgba(30, 41, 59, 1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 1.75rem;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    transition: transform 0.2s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.modal-confirm-overlay.modal-confirm-visible .modal-confirm {
+    transform: scale(1);
+}
+
+.modal-confirm-mensaje {
+    color: #fff;
+    font-size: 1.02rem;
+    line-height: 1.5;
+    margin: 0 0 1.5rem;
+    white-space: pre-line;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.modal-confirm-botones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.modal-confirm-btn {
+    padding: 0.6rem 1.3rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.modal-confirm-btn:hover {
+    transform: translateY(-1px);
+}
+
+.modal-confirm-cancelar {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.modal-confirm-cancelar:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-confirm-aceptar {
+    background: #51b1a3;
+    color: #101623;
+    border-color: #51b1a3;
+}
+
+.modal-confirm-aceptar:hover {
+    background: #5fc4b5;
+}

@@ -68,97 +68,92 @@ function calcularTotalPrecioCarrito() {
 
 };
 
-function imprimirTicket(){
-    let confirmarCompra = confirm("Confirmar compra??");
+async function imprimirTicket(){
+    const confirmarCompra = await mostrarConfirmacion("¿Confirmar compra?");
 
     if (!confirmarCompra) {
         window.location.href = "carrito.html";
+        return;
+    }
+
+    let idProductos = []; // guardamos los ids de los productos del carrito para registrar ventas
+
+    const nombreCliente = sessionStorage.getItem("usuario")
+    
+    // Primera mayúscula + resto en minúscula
+    nombreGuardado = nombreCliente.charAt(0).toUpperCase() + nombreCliente.slice(1).toLowerCase();
+
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF(); // doc tendra todos los metodos de jsPDF
+    
+    let y = 20; 
+
+    doc.setFontSize(20);
+
+    doc.text("                          Figu-ticket de compra" , 20, y);
+
+    y += 15;
+
+    // --- AQUÍ AGREGAMOS EL NOMBRE ---
+    doc.setFontSize(12);
+    doc.text(`Cliente: ${nombreGuardado}`, 20, y);
+    doc.text(`Fecha: ${new Date().toLocaleDateString()}`, 20, y + 6);
+
+    y += 5;
+
+    doc.text("-------------------------------------------------------------------------------------------------------------------------", 20, y + 10);
+    
+    y += 20; // Dejamos un espacio antes de los productos
+
+    doc.setFontSize(12);
+
+    carrito.forEach(producto => {
+
+        idProductos.push([producto.id, producto.precio]); // llenamos el array de ids de productos
+
+        doc.text(`${producto.nombre} - $${producto.precio}`, 40, y); // texto por cada producto
+
+        y += 10;
+    });
+    
+    doc.text("-------------------------------------------------------------------------------------------------------------------------", 20, y + 10);
+    y += 25
+    const precioTotal = carrito.reduce((total, producto) => total + parseInt(producto.precio), 0); // calculamos el total del ticket
+
+
+
+    doc.setFontSize(15);
+
+    doc.text(`Total: $${precioTotal}`, 20, y);
+
+    y += 50;
+    doc.text("                                     --- Gracias por su compra!!! ---", 20, y);
+
+    y+= 10;
+    doc.text("                                                 Figurita Store", 20, y)
+
+    // Ahora esperamos a que la venta quede registrada antes de seguir —
+    // antes esto se disparaba "en paralelo" sin esperar respuesta, lo que
+    // podía mostrar el toast de resultado en cualquier momento random.
+    await registrarVenta(precioTotal, idProductos);
+
+    doc.save("Figu-ticket.pdf");
+
+    const seguirComprando = await mostrarConfirmacion(
+        "¡Compra exitosa! 🥳\n\n¿Querés seguir comprando?",
+        { aceptar: "Sí, seguir comprando", cancelar: "Salir y cerrar sesión" }
+    );
+
+    if (seguirComprando) {
+        // Opción A: Vuelve a la tienda con la misma sesión
+        sessionStorage.setItem("carrito", JSON.stringify([]));
+        window.location.href = "productos.html";
     } else {
-
-        let idProductos = []; // guardamos los ids de los productos del carrito para registrar ventas
-    
-        const nombreCliente = sessionStorage.getItem("usuario")
-        
-        // Primera mayúscula + resto en minúscula
-        nombreGuardado = nombreCliente.charAt(0).toUpperCase() + nombreCliente.slice(1).toLowerCase();
-
-        const { jsPDF } = window.jspdf;
-    
-        const doc = new jsPDF(); // doc tendra todos los metodos de jsPDF
-        
-        let y = 20; 
-    
-        doc.setFontSize(20);
-    
-        doc.text("                          Figu-ticket de compra" , 20, y);
-    
-        y += 15;
-
-        // --- AQUÍ AGREGAMOS EL NOMBRE ---
-        doc.setFontSize(12);
-        doc.text(`Cliente: ${nombreGuardado}`, 20, y);
-        doc.text(`Fecha: ${new Date().toLocaleDateString()}`, 20, y + 6);
-
-        y += 5;
-
-        doc.text("-------------------------------------------------------------------------------------------------------------------------", 20, y + 10);
-        
-        y += 20; // Dejamos un espacio antes de los productos
-    
-        doc.setFontSize(12);
-    
-        carrito.forEach(producto => {
-    
-            idProductos.push([producto.id, producto.precio]); // llenamos el array de ids de productos
-    
-            doc.text(`${producto.nombre} - $${producto.precio}`, 40, y); // texto por cada producto
-    
-            y += 10;
-        });
-        
-        doc.text("-------------------------------------------------------------------------------------------------------------------------", 20, y + 10);
-        y += 25
-        const precioTotal = carrito.reduce((total, producto) => total + parseInt(producto.precio), 0); // calculamos el total del ticket
-    
-
-    
-        doc.setFontSize(15);
-    
-        doc.text(`Total: $${precioTotal}`, 20, y);
-
-        y += 50;
-        doc.text("                                     --- Gracias por su compra!!! ---", 20, y);
-
-        y+= 10;
-        doc.text("                                                 Figurita Store", 20, y)
-    
-    
-        registrarVenta(precioTotal, idProductos);
-    
-        doc.save("Figu-ticket.pdf");
-
-        // alert("Compra exitosa!!!");
-        // //podriamos hacer un alert que diga seguir comprando o salir
-        // // sessionStorage.removeItem("usuario");
-        // sessionStorage.setItem("carrito", JSON.stringify([]));
-        // // vaciarCarrito();
-        // window.location.href = "productos.html";
-        
-        const seguirComprando = confirm("¡Compra exitosa! 🥳\n\n¿Quieres seguir comprando?\n(Aceptar = Sí, Cancelar = Salir y cerrar sesión)");
-
-        if (seguirComprando) {
-            // Opción A: Vuelve a la tienda con la misma sesión
-            sessionStorage.setItem("carrito", JSON.stringify([]));
-            window.location.href = "productos.html";
-        } else {
-            // Opción B: Cierra sesión y va al inicio
-            sessionStorage.clear();
-            window.location.href = "bienvenida.html"; 
-        }
-
-        
-    };
-    
+        // Opción B: Cierra sesión y va al inicio
+        sessionStorage.clear();
+        window.location.href = "index.html"; 
+    }
 }
 
 async function registrarVenta(precioTotal, idProductos) {
@@ -203,13 +198,13 @@ async function registrarVenta(precioTotal, idProductos) {
 
 
     if(response.ok) {
-        alert(result.message);
+        mostrarToast(result.message, "exito");
         // // Limpieza de variables en sesion y redireccion para resetear la app
         // sessionStorage.removeItem("usuario");
         // // sessionStorage.removeItem("carrito"); // Si guardamos el carrito en session
         // window.location.href = "bienvenida.html"
     } else {
-        alert(result.message);
+        mostrarToast(result.message, "error");
     }
 }
 

@@ -132,7 +132,7 @@ function agregarACarrito(id){
     guardarCarritoEnStorage();
     actualizarContador();
 
-    alert("Producto agregado al carrito correctamente")
+   mostrarToast("Producto agregado al carrito correctamente", "exito");
 }
 
 function mostrarError(message) {

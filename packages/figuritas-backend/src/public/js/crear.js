@@ -28,15 +28,15 @@ async function enviarProducto(data) {
 
         // Vamos a verificar si la conexion fue exitosa con un "200" OK o "201" Created
         if(response.ok) {
-            alert(result.message);
+            mostrarToast(result.message, "exito");
             document.getElementById("altaProductos-formulario").reset(); //resetea los inputs del formulario 
 
         } else { // En caso de que haya otra respuesta distinta de ok
-            alert(result.message);
+            mostrarToast(result.message, "error");
         }
 
     } catch (error) {
-        alert("Error al procesar la solicitud");
+        mostrarToast("Error al procesar la solicitud", "error");
     }
 };
 
@@ -71,14 +71,14 @@ async function enviarUsuario(data) {
 
         // Vamos a verificar si la conexion fue exitosa con un "200" OK o "201" Created
         if(response.ok) {
-            alert(result.message);
+            mostrarToast(result.message, "exito");
             document.getElementById("altaUsuarios-formulario").reset(); //resetea los inputs del formulario 
 
         } else { // En caso de que haya otra respuesta distinta de ok
-            alert(result.message);
+            mostrarToast(result.message, "error");
         }
 
     } catch (error) {
-        alert("Error al procesar la solicitud");
+        mostrarToast("Error al procesar la solicitud", "error");
     }
 };

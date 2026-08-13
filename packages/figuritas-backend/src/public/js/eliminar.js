@@ -60,14 +60,14 @@ function mostrarProducto(producto) {
 
     let eliminarProducto_boton = document.getElementById("eliminarProducto_boton");
 
-    eliminarProducto_boton.addEventListener("click", event => {
+    eliminarProducto_boton.addEventListener("click", async (event) => {
 
         event.stopPropagation(); // Evitar la propagacion de eventos
 
-        let confirmacion = confirm("Querés eliminar este producto?");
+        const confirmacion = await mostrarConfirmacion("¿Querés eliminar este producto?");
 
         if(!confirmacion) {
-            alert("Eliminacion cancelada");
+            mostrarToast("Eliminación cancelada", "info");
 
         } else {
             eliminarProducto(producto.id);
@@ -85,15 +85,15 @@ async function eliminarProducto(id) {
         let result = await response.json(); // Procesamos la respuesta json que devolvemos del servidor
 
         if(response.ok) {
-            alert(result.message);
+            mostrarToast(result.message, "exito");
             listado_productos.innerHTML = "";
 
         } else {
-            alert(result.message || "No se pudo eliminar el producto");
+            mostrarToast(result.message || "No se pudo eliminar el producto", "error");
         }
 
     } catch(error) {
-        alert("Ocurrio un error al eliminar un producto");
+        mostrarToast("Ocurrió un error al eliminar un producto", "error");
     }
 }
 

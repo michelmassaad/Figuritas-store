@@ -15,7 +15,7 @@ function iniciarSesion() {
         // Redirigimos a la tienda
         window.location.href = "productos.html";
     } else {
-        alert("Debe ingresar un nombre valido")
+       mostrarToast("Debe ingresar un nombre válido", "error");
     }
 }
 

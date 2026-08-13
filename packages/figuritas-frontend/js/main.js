@@ -26,8 +26,8 @@ function actualizarContador() {
     cantidadCarrito.innerHTML = `<p id="cantidadCarritoTexto"> (${carrito.length})</p>`; 
 }
 
-function cerrarSesion() {
-    const confirmar = confirm("Seguro quieres salir? Se perderan los datos de tu sesion");
+async function cerrarSesion() {
+    const confirmar = await mostrarConfirmacion("Seguro quieres salir? Se perderan los datos de tu sesion");
 
     if (confirmar) {
         // esto elimina cualquier cosa guardada en la session

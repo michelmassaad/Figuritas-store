@@ -147,18 +147,18 @@ async function actualizarProducto(event) {
         let result = await response.json(); 
 
         if(response.ok) { 
-            alert(result.message);
+            mostrarToast(result.message, "exito");
 
             // Vaciamos el formulario y el listado
             listado_productos.innerHTML = "";
             contenedor_formulario.innerHTML = "";
 
         } else {
-            alert(result.message);
+            mostrarToast(result.message, "error");
         }
 
     } catch (error) {
-        alert("Error al procesar la solicitud");
+        mostrarToast("Error al procesar la solicitud", "error");
     }
 
 };
